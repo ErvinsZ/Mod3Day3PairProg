@@ -116,7 +116,7 @@
         </p>
         <p>
           <a href="#" class="btn btn-primary my-2" onclick="loadImage()">Load Images</a>
-          <a href="#" class="btn btn-secondary my-2">Load Secondary Images</a>
+          <a href="#" class="btn btn-secondary my-2" onclick="loadSecondaryImg()">Load Secondary Images</a>
         </p>
       </div>
     </section>
@@ -415,7 +415,13 @@
 
 <script>
     function loadImage(){
-        fetch("http://www.splashbase.co/api/v1/images/search?query=laptop").then(response => response.json()).then((json) => console.log(json.images[0]))
+        fetch("http://www.splashbase.co/api/v1/images/search?query=laptop").then(response => response.json()).then((json) => console.log(json.images))
+    }
+    function loadSecondaryImg(){
+
+      fetch("http://www.splashbase.co/api/v1/images/search?query=cameras")
+      .then(response => response.json())
+      .then(secondary => console.log(secondary.images))
     }
 </script>
 
